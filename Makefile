@@ -13,7 +13,7 @@ OBJS = $(BUILD_SRC:.c=.o) $(SRC:.c=.o)
 all: baseconverter
 
 resource.c: $(SRCDIR)/resource.xml $(SRCDIR)/converter.glade
-	$(GLIB_COMPILE_RESOURCES) resource.xml --target=$@ --sourcedir=. --generate-source
+	$(GLIB_COMPILE_RESOURCES) $(SRCDIR)/resource.xml --target=$@ --sourcedir=$(SRCDIR) --generate-source
 
 %.o: $(SRCDIR)/%.c
 	$(CC) -c -o $(@F) $(CFLAGS) $<
