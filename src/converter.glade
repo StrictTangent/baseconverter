@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
+<interface>
+  <requires lib="gtk+" version="3.22"/>
+  <object class="GtkListStore" id="liststore_bitwidth">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">8</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">16</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">32</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">64</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore_types">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Decimal -&gt; Binary</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Decimal -&gt; Hex</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Binary -&gt; Decimal</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Binary -&gt; Hex</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Hex -&gt; Decimal</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Hex -&gt; Binary</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="window">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Base Converter</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkEntry" id="input_to_convert">
+            <property name="width_request">550</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">Value to Convert</property>
+            <signal name="activate" handler="on_input_to_convert_activate" swapped="no"/>
+            <signal name="changed" handler="on_input_to_convert_changed" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="combo_types">
+            <property name="width_request">202</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="model">liststore_types</property>
+            <property name="has_entry">True</property>
+            <property name="entry_text_column">0</property>
+            <child internal-child="entry">
+              <object class="GtkEntry" id="entry_types">
+                <property name="can_focus">False</property>
+                <property name="placeholder_text" translatable="yes">Conversion Type</property>
+                <signal name="changed" handler="on_entry_types_changed" swapped="no"/>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">215</property>
+            <property name="y">230</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="combo_bitwidth">
+            <property name="name">combo_bitwidth</property>
+            <property name="width_request">202</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="model">liststore_bitwidth</property>
+            <property name="has_entry">True</property>
+            <property name="entry_text_column">0</property>
+            <child internal-child="entry">
+              <object class="GtkEntry" id="entry_bitwidth">
+                <property name="can_focus">False</property>
+                <property name="placeholder_text" translatable="yes">Bitwidth</property>
+                <signal name="changed" handler="on_entry_bitwidth_changed" swapped="no"/>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">215</property>
+            <property name="y">270</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button_convert">
+            <property name="label" translatable="yes">Convert</property>
+            <property name="width_request">200</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_button_convert_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">215</property>
+            <property name="y">190</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_result">
+            <property name="width_request">550</property>
+            <property name="height_request">41</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="justify">center</property>
+          </object>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">140</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry_result">
+            <property name="width_request">550</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">90</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLinkButton" id="link_github">
+            <property name="label" translatable="yes">https://github.com/StrictTangent/baseconverter</property>
+            <property name="width_request">313</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="relief">none</property>
+            <property name="uri">https://github.com/StrictTangent/baseconverter</property>
+          </object>
+          <packing>
+            <property name="x">317</property>
+            <property name="y">350</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+  </object>
+</interface>
